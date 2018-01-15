@@ -1,8 +1,10 @@
+import { GenericService } from './services/generic/generic.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
+import { LoginModule } from '../app-login/login.module';
+import {HttpClientModule} from '@angular/common/http';
+import { CredentialsService } from './services/credentials/credentials.service';
 
 
 @NgModule({
@@ -10,9 +12,14 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    LoginModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    GenericService,
+    CredentialsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
